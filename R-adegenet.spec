@@ -4,13 +4,13 @@
 #
 Name     : R-adegenet
 Version  : 2.1.1
-Release  : 5
+Release  : 6
 URL      : https://cran.r-project.org/src/contrib/adegenet_2.1.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/adegenet_2.1.1.tar.gz
 Summary  : Exploratory Analysis of Genetic and Genomic Data
 Group    : Development/Tools
 License  : GPL-2.0+
-Requires: R-adegenet-lib
+Requires: R-adegenet-lib = %{version}-%{release}
 Requires: R-ade4
 Requires: R-ape
 Requires: R-dplyr
@@ -23,16 +23,10 @@ BuildRequires : R-dplyr
 BuildRequires : R-igraph
 BuildRequires : R-seqinr
 BuildRequires : R-vegan
-BuildRequires : clr-R-helpers
+BuildRequires : buildreq-R
 
 %description
-provides formal (S4) classes for storing and handling various genetic data,
-    including genetic markers with varying ploidy and hierarchical population
-    structure ('genind' class), alleles counts by populations ('genpop'), and
-    genome-wide SNP data ('genlight'). It also implements original multivariate
-    methods (DAPC, sPCA), graphics, statistical tests, simulation tools, distance
-    and similarity measures, and several spatial methods. A range of both empirical
-    and simulated datasets is also provided to illustrate various methods.
+[![Travis-CI Build Status](https://travis-ci.org/thibautjombart/adegenet.png?branch=master)](https://travis-ci.org/thibautjombart/adegenet)
 
 %package lib
 Summary: lib components for the R-adegenet package.
@@ -50,11 +44,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1530302423
+export SOURCE_DATE_EPOCH=1552708544
 
 %install
+export SOURCE_DATE_EPOCH=1552708544
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1530302423
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -72,9 +66,9 @@ echo "FFLAGS = $FFLAGS -march=haswell -ftree-vectorize " >> ~/.R/Makevars
 echo "CXXFLAGS = $CXXFLAGS -march=haswell -ftree-vectorize " >> ~/.R/Makevars
 R CMD INSTALL --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l %{buildroot}/usr/lib64/R/library adegenet
 for i in `find %{buildroot}/usr/lib64/R/ -name "*.so"`; do mv $i $i.avx2 ; mv $i.avx2 ~/.stash/; done
-echo "CFLAGS = $CFLAGS -march=skylake-avx512 -ftree-vectorize -mprefer-vector-width=512 " > ~/.R/Makevars
-echo "FFLAGS = $FFLAGS -march=skylake-avx512 -ftree-vectorize -mprefer-vector-width=512 " >> ~/.R/Makevars
-echo "CXXFLAGS = $CXXFLAGS -march=skylake-avx512 -ftree-vectorize -mprefer-vector-width=512  " >> ~/.R/Makevars
+echo "CFLAGS = $CFLAGS -march=skylake-avx512 -ftree-vectorize " > ~/.R/Makevars
+echo "FFLAGS = $FFLAGS -march=skylake-avx512 -ftree-vectorize " >> ~/.R/Makevars
+echo "CXXFLAGS = $CXXFLAGS -march=skylake-avx512 -ftree-vectorize " >> ~/.R/Makevars
 R CMD INSTALL --preclean --install-tests --no-test-load --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l %{buildroot}/usr/lib64/R/library adegenet
 for i in `find %{buildroot}/usr/lib64/R/ -name "*.so"`; do mv $i $i.avx512 ; mv $i.avx512 ~/.stash/; done
 echo "CFLAGS = $CFLAGS -ftree-vectorize " > ~/.R/Makevars
@@ -89,8 +83,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library adegenet|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  adegenet || :
 
 
 %files
@@ -142,7 +135,22 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/adegenet/help/paths.rds
 /usr/lib64/R/library/adegenet/html/00Index.html
 /usr/lib64/R/library/adegenet/html/R.css
-/usr/lib64/R/library/adegenet/libs/symbols.rds
+/usr/lib64/R/library/adegenet/tests/testthat.R
+/usr/lib64/R/library/adegenet/tests/testthat/test-findclust.R
+/usr/lib64/R/library/adegenet/tests/testthat/test-prop.R
+/usr/lib64/R/library/adegenet/tests/testthat/test-seppop.R
+/usr/lib64/R/library/adegenet/tests/testthat/test_accessors.R
+/usr/lib64/R/library/adegenet/tests/testthat/test_compoplot.R
+/usr/lib64/R/library/adegenet/tests/testthat/test_constructors.R
+/usr/lib64/R/library/adegenet/tests/testthat/test_genlight.R
+/usr/lib64/R/library/adegenet/tests/testthat/test_haploGen.R
+/usr/lib64/R/library/adegenet/tests/testthat/test_hierarchy.R
+/usr/lib64/R/library/adegenet/tests/testthat/test_import.R
+/usr/lib64/R/library/adegenet/tests/testthat/test_repool.R
+/usr/lib64/R/library/adegenet/tests/testthat/test_snapclust.R
+/usr/lib64/R/library/adegenet/tests/testthat/test_subset.R
+/usr/lib64/R/library/adegenet/tests/testthat/test_summary.R
+/usr/lib64/R/library/adegenet/tests/testthat/test_xval.R
 
 %files lib
 %defattr(-,root,root,-)
