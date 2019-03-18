@@ -4,25 +4,61 @@
 #
 Name     : R-adegenet
 Version  : 2.1.1
-Release  : 10
+Release  : 11
 URL      : https://cran.r-project.org/src/contrib/adegenet_2.1.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/adegenet_2.1.1.tar.gz
 Summary  : Exploratory Analysis of Genetic and Genomic Data
 Group    : Development/Tools
 License  : GPL-2.0+
 Requires: R-adegenet-lib = %{version}-%{release}
-Requires: R-ade4
-Requires: R-ape
-Requires: R-dplyr
-Requires: R-igraph
-Requires: R-seqinr
-Requires: R-vegan
+Requires: R-LearnBayes
+Requires: R-coda
+Requires: R-expm
+Requires: R-ggplot2
+Requires: R-gmodels
+Requires: R-gtable
+Requires: R-htmltools
+Requires: R-httpuv
+Requires: R-lazyeval
+Requires: R-munsell
+Requires: R-permute
+Requires: R-pillar
+Requires: R-plyr
+Requires: R-purrr
+Requires: R-reshape2
+Requires: R-scales
+Requires: R-sf
+Requires: R-shiny
+Requires: R-spData
+Requires: R-spdep
+Requires: R-xtable
+BuildRequires : R-LearnBayes
 BuildRequires : R-ade4
 BuildRequires : R-ape
+BuildRequires : R-coda
 BuildRequires : R-dplyr
+BuildRequires : R-expm
+BuildRequires : R-ggplot2
+BuildRequires : R-gmodels
+BuildRequires : R-gtable
+BuildRequires : R-htmltools
+BuildRequires : R-httpuv
 BuildRequires : R-igraph
+BuildRequires : R-lazyeval
+BuildRequires : R-munsell
+BuildRequires : R-permute
+BuildRequires : R-pillar
+BuildRequires : R-plyr
+BuildRequires : R-purrr
+BuildRequires : R-reshape2
+BuildRequires : R-scales
 BuildRequires : R-seqinr
+BuildRequires : R-sf
+BuildRequires : R-shiny
+BuildRequires : R-spData
+BuildRequires : R-spdep
 BuildRequires : R-vegan
+BuildRequires : R-xtable
 BuildRequires : buildreq-R
 
 %description
@@ -44,10 +80,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552708544
+export SOURCE_DATE_EPOCH=1552933191
 
 %install
-export SOURCE_DATE_EPOCH=1552708544
+export SOURCE_DATE_EPOCH=1552933191
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
