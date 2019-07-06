@@ -24,5 +24,6 @@ R-sf
 R-shiny
 R-spData
 R-spdep
+R-stringi
 R-vegan
 R-xtable

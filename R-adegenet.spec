@@ -4,34 +4,24 @@
 #
 Name     : R-adegenet
 Version  : 2.1.1
-Release  : 15
+Release  : 16
 URL      : https://cran.r-project.org/src/contrib/adegenet_2.1.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/adegenet_2.1.1.tar.gz
 Summary  : Exploratory Analysis of Genetic and Genomic Data
 Group    : Development/Tools
 License  : GPL-2.0+
 Requires: R-adegenet-lib = %{version}-%{release}
-Requires: R-LearnBayes
-Requires: R-coda
-Requires: R-expm
+Requires: R-ade4
+Requires: R-ape
+Requires: R-dplyr
 Requires: R-ggplot2
-Requires: R-gmodels
-Requires: R-gtable
-Requires: R-htmltools
-Requires: R-httpuv
-Requires: R-lazyeval
-Requires: R-munsell
-Requires: R-permute
-Requires: R-pillar
-Requires: R-plyr
-Requires: R-purrr
+Requires: R-igraph
 Requires: R-reshape2
-Requires: R-scales
-Requires: R-sf
+Requires: R-seqinr
 Requires: R-shiny
-Requires: R-spData
 Requires: R-spdep
-Requires: R-xtable
+Requires: R-stringi
+Requires: R-vegan
 BuildRequires : R-LearnBayes
 BuildRequires : R-ade4
 BuildRequires : R-ape
@@ -57,6 +47,7 @@ BuildRequires : R-sf
 BuildRequires : R-shiny
 BuildRequires : R-spData
 BuildRequires : R-spdep
+BuildRequires : R-stringi
 BuildRequires : R-vegan
 BuildRequires : R-xtable
 BuildRequires : buildreq-R
@@ -79,13 +70,13 @@ lib components for the R-adegenet package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1552933191
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1562443585
 
 %install
-export SOURCE_DATE_EPOCH=1552933191
+export SOURCE_DATE_EPOCH=1562443585
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -114,12 +105,12 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc  adegenet || :
+R CMD check --no-manual --no-examples --no-codoc adegenet || :
 
 
 %files
