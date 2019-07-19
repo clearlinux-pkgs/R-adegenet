@@ -4,7 +4,7 @@
 #
 Name     : R-adegenet
 Version  : 2.1.1
-Release  : 16
+Release  : 17
 URL      : https://cran.r-project.org/src/contrib/adegenet_2.1.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/adegenet_2.1.1.tar.gz
 Summary  : Exploratory Analysis of Genetic and Genomic Data
@@ -20,40 +20,27 @@ Requires: R-reshape2
 Requires: R-seqinr
 Requires: R-shiny
 Requires: R-spdep
-Requires: R-stringi
 Requires: R-vegan
-BuildRequires : R-LearnBayes
 BuildRequires : R-ade4
 BuildRequires : R-ape
-BuildRequires : R-coda
 BuildRequires : R-dplyr
-BuildRequires : R-expm
 BuildRequires : R-ggplot2
-BuildRequires : R-gmodels
-BuildRequires : R-gtable
-BuildRequires : R-htmltools
-BuildRequires : R-httpuv
 BuildRequires : R-igraph
-BuildRequires : R-lazyeval
-BuildRequires : R-munsell
-BuildRequires : R-permute
-BuildRequires : R-pillar
-BuildRequires : R-plyr
-BuildRequires : R-purrr
 BuildRequires : R-reshape2
-BuildRequires : R-scales
 BuildRequires : R-seqinr
-BuildRequires : R-sf
 BuildRequires : R-shiny
-BuildRequires : R-spData
 BuildRequires : R-spdep
-BuildRequires : R-stringi
 BuildRequires : R-vegan
-BuildRequires : R-xtable
 BuildRequires : buildreq-R
 
 %description
-[![Travis-CI Build Status](https://travis-ci.org/thibautjombart/adegenet.png?branch=master)](https://travis-ci.org/thibautjombart/adegenet)
+provides formal (S4) classes for storing and handling various genetic data,
+    including genetic markers with varying ploidy and hierarchical population
+    structure ('genind' class), alleles counts by populations ('genpop'), and
+    genome-wide SNP data ('genlight'). It also implements original multivariate
+    methods (DAPC, sPCA), graphics, statistical tests, simulation tools, distance
+    and similarity measures, and several spatial methods. A range of both empirical
+    and simulated datasets is also provided to illustrate various methods.
 
 %package lib
 Summary: lib components for the R-adegenet package.
@@ -71,10 +58,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1562443585
+export SOURCE_DATE_EPOCH=1563519173
 
 %install
-export SOURCE_DATE_EPOCH=1562443585
+export SOURCE_DATE_EPOCH=1563519173
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
