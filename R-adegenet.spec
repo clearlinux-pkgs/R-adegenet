@@ -4,7 +4,7 @@
 #
 Name     : R-adegenet
 Version  : 2.1.1
-Release  : 17
+Release  : 18
 URL      : https://cran.r-project.org/src/contrib/adegenet_2.1.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/adegenet_2.1.1.tar.gz
 Summary  : Exploratory Analysis of Genetic and Genomic Data
@@ -32,15 +32,10 @@ BuildRequires : R-shiny
 BuildRequires : R-spdep
 BuildRequires : R-vegan
 BuildRequires : buildreq-R
+BuildRequires : util-linux
 
 %description
-provides formal (S4) classes for storing and handling various genetic data,
-    including genetic markers with varying ploidy and hierarchical population
-    structure ('genind' class), alleles counts by populations ('genpop'), and
-    genome-wide SNP data ('genlight'). It also implements original multivariate
-    methods (DAPC, sPCA), graphics, statistical tests, simulation tools, distance
-    and similarity measures, and several spatial methods. A range of both empirical
-    and simulated datasets is also provided to illustrate various methods.
+[![Travis-CI Build Status](https://travis-ci.org/thibautjombart/adegenet.png?branch=master)](https://travis-ci.org/thibautjombart/adegenet)
 
 %package lib
 Summary: lib components for the R-adegenet package.
@@ -58,10 +53,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1563519173
+export SOURCE_DATE_EPOCH=1571793951
 
 %install
-export SOURCE_DATE_EPOCH=1563519173
+export SOURCE_DATE_EPOCH=1571793951
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
