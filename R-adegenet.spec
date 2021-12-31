@@ -4,7 +4,7 @@
 #
 Name     : R-adegenet
 Version  : 2.1.5
-Release  : 40
+Release  : 41
 URL      : https://cran.r-project.org/src/contrib/adegenet_2.1.5.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/adegenet_2.1.5.tar.gz
 Summary  : Exploratory Analysis of Genetic and Genomic Data
@@ -58,10 +58,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1640884193
+export SOURCE_DATE_EPOCH=1640965902
 
 %install
-export SOURCE_DATE_EPOCH=1640884193
+export SOURCE_DATE_EPOCH=1640965902
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
