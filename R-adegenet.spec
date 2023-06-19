@@ -4,7 +4,7 @@
 #
 Name     : R-adegenet
 Version  : 2.1.10
-Release  : 54
+Release  : 55
 URL      : https://cran.r-project.org/src/contrib/adegenet_2.1.10.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/adegenet_2.1.10.tar.gz
 Summary  : Exploratory Analysis of Genetic and Genomic Data
