@@ -1,5 +1,5 @@
 PKG_NAME := R-adegenet
-URL = https://cran.r-project.org/src/contrib/adegenet_2.1.10.tar.gz
+URL = https://ftp.osuosl.org/pub/cran/src/contrib/adegenet_2.1.11.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
